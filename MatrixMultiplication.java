@@ -1,10 +1,11 @@
 package com.aurionpro2Darray;
+
 import java.util.*;
+
 public class MatrixMultiplication {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 
-		
 		int rowsA = getInput("Enter the number of rows for Matrix A: ");
 		int columnsA = getInput("Enter the number of columns for Matrix A: ");
 
@@ -48,9 +49,9 @@ public class MatrixMultiplication {
 	}
 
 	// Method to input matrix elements
-	private static void inputMatrix(int[][] matrix, int rows, int cols, Scanner scanner) {
+	private static void inputMatrix(int[][] matrix, int rows, int columns, Scanner scanner) {
 		for (int i = 0; i < rows; i++) {
-			for (int j = 0; j < cols; j++) {
+			for (int j = 0; j < columns; j++) {
 				System.out.print("Enter element [" + (i + 1) + "][" + (j + 1) + "]: ");
 				matrix[i][j] = scanner.nextInt();
 			}
@@ -58,11 +59,11 @@ public class MatrixMultiplication {
 	}
 
 	// Method to multiply two matrices
-	private static int[][] multiplyMatrices(int[][] matrixA, int[][] matrixB, int rowsA, int colsB, int commonDim) {
-		int[][] resultMatrix = new int[rowsA][colsB];
+	private static int[][] multiplyMatrices(int[][] matrixA, int[][] matrixB, int rowsA, int columnsB, int commonDim) {
+		int[][] resultMatrix = new int[rowsA][columnsB];
 
 		for (int i = 0; i < rowsA; i++) {
-			for (int j = 0; j < colsB; j++) {
+			for (int j = 0; j < columnsB; j++) {
 				resultMatrix[i][j] = 0;
 				for (int k = 0; k < commonDim; k++) {
 					resultMatrix[i][j] += matrixA[i][k] * matrixB[k][j];
@@ -73,9 +74,9 @@ public class MatrixMultiplication {
 	}
 
 	// Method to print the matrix
-	private static void printMatrix(int[][] matrix, int rows, int cols) {
+	private static void printMatrix(int[][] matrix, int rows, int columns) {
 		for (int i = 0; i < rows; i++) {
-			for (int j = 0; j < cols; j++) {
+			for (int j = 0; j < columns; j++) {
 				System.out.print(matrix[i][j] + " ");
 			}
 			System.out.println();
